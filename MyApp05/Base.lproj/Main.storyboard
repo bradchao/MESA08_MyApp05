@@ -50,6 +50,7 @@
                     </view>
                     <connections>
                         <outlet property="btnNumber1" destination="Uai-xk-dU0" id="RYd-wc-v9i"/>
+                        <outlet property="pickerView" destination="cAp-lP-fsN" id="DUV-Nz-6cK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

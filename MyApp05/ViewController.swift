@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var btnNumber1: UIButton!
     
-    private let items = ["iPhone","Android","Windows","iPad","Apple Watch"]
-    private let item2s = ["Item1","Item2","Item3","Item4","Item5","Item6","Item7",]
+    @IBOutlet weak var pickerView: UIPickerView!
+    private let city = ["台北市","台中市","彰化縣","台南市"]
+    private var area:[[String]] = []
     
 
     @IBAction func clickNumber1(_ sender: Any) {
@@ -27,9 +28,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var ret = 0;
         if component == 0 {
-            ret = items.count
+            ret = city.count
         }else if (component == 1){
-            ret = item2s.count
+            ret = area.count
         }
         return ret
     }
@@ -37,19 +38,35 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         var ret = ""
         if component == 0 {
-            ret = items[row]
+            ret = city[row]
         }else if component == 1 {
-            ret = item2s[row]
+            ret = area[pickerView.selectedRow(inComponent: 0)][row]
         }
         
         return ret
     }
     
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("\(component) : \(row)")
+    }
     
+    func initView(){
+        area += [["中山區","萬華區","士林區","北投區", "大直區"]]
+        area += [["西屯區","南屯區","北屯區","中區", "和平區", "西區"]]
+        area += [["鹿港鎮","和美鎮","彰化市","花壇鄉", "伸港鄉"]]
+        area += [["安平區","永康區","新營區"]]
+        
+        //var i = pickerView.selectedRow(inComponent: 0)
+        pickerView.selectRow(0, inComponent: 0, animated: true)
+        pickerView.selectRow(0, inComponent: 1, animated: true)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //showDialog()
+    
+        initView()
+        
         print("viewDidLoad")
     }
     
