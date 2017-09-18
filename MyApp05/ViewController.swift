@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if component == 0 {
             ret = city.count
         }else if (component == 1){
-            ret = area.count
+            ret = area[pickerView.selectedRow(inComponent: 0)].count
         }
         return ret
     }
@@ -47,7 +47,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("\(component) : \(row)")
+        
+        if component == 0 {
+            pickerView.reloadComponent(1)
+            pickerView.selectRow(0, inComponent: 1, animated: true)
+            print("City: \(city[row])")
+        }else if component == 1 {
+            print("Area: \(area[pickerView.selectedRow(inComponent: 0)][row])")
+        }
+        
+        //print("\(component) : \(row)")
     }
     
     func initView(){
@@ -72,6 +81,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
+        
         showDialog()
     }
     
