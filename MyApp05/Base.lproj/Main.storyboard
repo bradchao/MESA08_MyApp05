@@ -39,11 +39,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="AVO-3m-eEu"/>
                                 </connections>
                             </pickerView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-lW-8a1">
+                                <rect key="frame" x="0.0" y="238" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="527476339.33368301">
+                                    <!--2017-09-19 01:12:19 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="zh_TW"/>
+                                <connections>
+                                    <action selector="changeDate:" destination="BYZ-38-t0r" eventType="valueChanged" id="1SG-Kj-IrY"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Onv-lW-8a1" firstAttribute="top" secondItem="cAp-lP-fsN" secondAttribute="bottom" constant="18" id="28d-AO-usi"/>
+                            <constraint firstItem="Onv-lW-8a1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HcZ-kT-hAc"/>
                             <constraint firstItem="cAp-lP-fsN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="bes-Hm-f2W"/>
                             <constraint firstAttribute="trailing" secondItem="cAp-lP-fsN" secondAttribute="trailing" id="esY-Og-zsx"/>
+                            <constraint firstAttribute="trailing" secondItem="Onv-lW-8a1" secondAttribute="trailing" id="moF-nw-LoF"/>
                             <constraint firstItem="cAp-lP-fsN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nsZ-fj-98e"/>
                             <constraint firstItem="cAp-lP-fsN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oKe-Ga-bet"/>
                         </constraints>

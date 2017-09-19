@@ -15,6 +15,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     private let city = ["台北市","台中市","彰化縣","台南市"]
     private var area:[[String]] = []
     
+    @IBAction func changeDate(_ sender: UIDatePicker) {
+        // Date
+        let date = sender.date
+        
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "YYYY-MM-dd HH:mm"
+        
+        let dateString = dateFormat.string(from: date)
+        print(dateString)
+        
+    }
 
     @IBAction func clickNumber1(_ sender: Any) {
         btnNumber1.isEnabled = false
@@ -75,8 +86,28 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
     
         initView()
+
+        let now = Date()
+        print(now)
+        let d1 = Date(timeInterval: 60*60*8, since: now)
+        print(d1)
+        let d2 = Date(timeInterval: -86400, since: now)
+        print(d2)
         
-        print("viewDidLoad")
+        let formatter = DateFormatter();
+        formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        print(formatter.string(from: now))
+        
+        let nowCal = Calendar.current
+        
+        let component = nowCal.dateComponents([.year,.month,.day, .hour, .minute], from: now)
+        print("year:\(component.year!), hour:\(component.hour!)")
+        
+        
+        
+        
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
